@@ -9,7 +9,7 @@ import Card from "@components/Card.astro";
 // Fetch the entry data and type the response
 const entry = await getEntry("about", "about");
 
-const { description, title, cardText } = await entry.data;
+const { description, title, cardText } = entry.data;
 ---
 
 <Layout title={title} description={description}>
