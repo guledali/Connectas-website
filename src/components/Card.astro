@@ -1,0 +1,16 @@
+---
+// Example with props
+interface Props {
+  cardText: string;
+}
+
+const { cardText } = Astro.props as Props;
+---
+
+<div class="card w-75 mx-auto">
+  <div class="card-body">
+    <p class="card-text lead p-3">
+      {cardText}
+    </p>
+  </div>
+</div>

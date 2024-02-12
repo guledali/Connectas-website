@@ -1,0 +1,50 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Navbar from "@components/Navbar.astro";
+---
+
+<Layout
+  title="Connectas AB | Hem"
+  description="Vi hjälpa dig att hitta ditt dröm jobb"
+>
+  <div class="custom-vh-75">
+    <Navbar />
+    <main class="container">
+      <section class="row">
+        <div class="col-md-6 mt-5">
+          <h1 class="display-5 fw-semibold text-white">
+            Välkommen till Connectas Matchning!
+          </h1>
+          <p class="text-light mt-4 text-wrap" style="width: 75%;">
+            Syftet med vår tjänst är att assistera dig i att finna den snabbaste
+            vägen till ditt kommande jobb eller utbildning. Vi erbjuder stöd och
+            vägledning anpassade efter dina individuella förutsättningar under
+            resan mot arbete eller studier.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+</Layout>
+
+<style is:inline>
+  .custom-vh-75 {
+    position: relative;
+    height: 75vh !important;
+    z-index: 1;
+  }
+
+  .custom-vh-75::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      linear-gradient(rgba(32, 13, 59, 0.65), rgba(32, 13, 59, 0.65)),
+      url("/linkedin-sales.jpg") no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+  }
+</style>

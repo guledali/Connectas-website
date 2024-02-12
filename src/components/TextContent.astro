@@ -1,0 +1,12 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+---
+
+<Fragment>
+  <h1 class="display-5 fw-semibold text-white">{title}</h1>
+  <p class="text-light mt-4 text-wrap" style="width: 75%;">{description}</p>
+</Fragment>

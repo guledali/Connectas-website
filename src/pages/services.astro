@@ -1,0 +1,53 @@
+---
+import { getEntry } from "astro:content";
+
+import Layout from "@layouts/Layout.astro";
+import Navbar from "@components/Navbar.astro";
+import TextContent from "@components/TextContent.astro";
+import Card from "@components/Card.astro";
+
+// Fetch the entry data and type the response
+const entry = await getEntry("services", "services");
+
+const { description, title, cardText } = await entry.data;
+---
+
+<Layout title={title} description={description}>
+  <div class="custom-vh-75">
+    <Navbar />
+    <main class="container">
+      <section class="row">
+        <div class="col-md-6 mt-5">
+          <TextContent title="Välkommen till Connectas" />
+        </div>
+
+        <div class="card-wrapper position-relative negative-bottom-10">
+          <Card cardText={cardText} />
+        </div>
+      </section>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  .custom-vh-75 {
+    position: relative;
+    height: 75vh !important;
+    z-index: 1;
+  }
+
+  .custom-vh-75::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1f0d3b;
+    z-index: -1;
+  }
+
+  .negative-bottom-10 {
+    bottom: -10rem;
+  }
+</style>
