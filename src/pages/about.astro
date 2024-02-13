@@ -1,7 +1,7 @@
 ---
 import { getEntry } from "astro:content";
 
-import Layout from "@layouts/Layout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import Navbar from "@components/Navbar.astro";
 import TextContent from "@components/TextContent.astro";
 import Card from "@components/Card.astro";
@@ -12,7 +12,7 @@ const entry = await getEntry("about", "about");
 const { description, title, cardText } = entry.data;
 ---
 
-<Layout title={title} description={description}>
+<BaseLayout title={title} description={description}>
   <div class="custom-vh-75">
     <Navbar />
     <main class="container">
@@ -30,7 +30,7 @@ const { description, title, cardText } = entry.data;
       </section>
     </main>
   </div>
-</Layout>
+</BaseLayout>
 
 <style>
   .custom-vh-75 {
