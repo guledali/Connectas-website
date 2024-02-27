@@ -2,7 +2,6 @@
 import { getEntry } from "astro:content";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Navbar from "@components/Navbar.astro";
 import TextContent from "@components/TextContent.astro";
 import Card from "@components/Card.astro";
 
@@ -14,7 +13,6 @@ const { description, title, cardText } = entry.data;
 
 <BaseLayout title={title} description={description}>
   <div class="custom-vh-75">
-    <Navbar />
     <main class="container">
       <section class="row">
         <div class="col-md-6 mt-5">

@@ -1,6 +1,8 @@
 import { defineConfig } from "astro/config";
 import vercel from "@astrojs/vercel/serverless";
 
+import tailwind from "@astrojs/tailwind";
+
 // https://astro.build/config
 export default defineConfig({
   // Must be 'static' or 'hybrid'
@@ -10,4 +12,6 @@ export default defineConfig({
       enabled: true,
     },
   }),
+  integrations: [tailwind()],
+  prefetch: true,
 });
