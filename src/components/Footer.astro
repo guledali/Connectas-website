@@ -1,25 +1,35 @@
-<div class="container">
-  <footer class="py-5">
-    <div
-      class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top"
-    >
-      <p>
-        &copy; 2023 <strong>Connectas AB</strong><br />Alla rättigheter
-        förbehållna.
-      </p>
-      <ul class="nav col-md-4 justify-content-end">
-        <li class="nav-item">
-          <a href="/" class="nav-link px-2 text-body-secondary">Hem</a>
-        </li>
-        <li class="nav-item">
-          <a href="/about" class="nav-link px-2 text-body-secondary">Om oss</a>
-        </li>
-        <li class="nav-item">
-          <a href="/services" class="nav-link px-2 text-body-secondary"
-            >Tjänster</a
-          >
-        </li>
-      </ul>
-    </div>
-  </footer>
-</div>
+---
+import Link from "@components/Link.astro";
+
+type NavLink = {
+  href: string;
+  text: string;
+  ariaLabel: string;
+};
+
+const navLinks: NavLink[] = [
+  { href: "/", text: "Startsida", ariaLabel: "Gå till startsidan" },
+  {
+    href: "/services",
+    text: "Tjänster",
+    ariaLabel: "Läs om våra tjänster",
+  },
+  { href: "/about", text: "Om Oss", ariaLabel: "Lär känna oss" },
+  {
+    href: "/contact-us",
+    text: "Kontakt",
+    ariaLabel: "Kontakta oss för frågor och information",
+  },
+];
+---
+
+<footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+  <nav class="grid grid-flow-col gap-4">
+    {navLinks.map((linkProps) => <Link {...linkProps} />)}
+  </nav>
+  <aside>
+    <p>
+      &copy; 2023 <strong>Connectas AB</strong> Alla rättigheter förbehållna.
+    </p>
+  </aside>
+</footer>

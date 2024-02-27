@@ -1,61 +1,88 @@
 ---
+import Link from "@components/Link.astro";
+
+// Define NavLink type and navLinks array
 type NavLink = {
   href: string;
   text: string;
+  ariaLabel: string;
 };
 
 const navLinks: NavLink[] = [
-  { href: "/", text: "Hem" },
-  { href: "/services", text: "Våra tjänster" },
-  { href: "/about", text: "Om oss" },
-  { href: "/contact-us", text: "Kontakta oss" },
+  { href: "/", text: "Startsida", ariaLabel: "Gå till startsidan" },
+  {
+    href: "/services",
+    text: "Tjänster",
+    ariaLabel: "Läs om våra tjänster",
+  },
+  { href: "/about", text: "Om Oss", ariaLabel: "Lär känna oss" },
+  {
+    href: "/contact-us",
+    text: "Kontakt",
+    ariaLabel: "Kontakta oss för frågor och information",
+  },
 ];
 ---
 
-<nav class="navbar navbar-expand-lg bg-transparent-custom">
-  <div class="container-fluid">
-    <div class="bg-light ms-5 rounded p-2">
-      <span class="navbar-brand fw-bold h1">Connectas AB</span>
-    </div>
-
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+<div class="navbar bg-base-100">
+  <div class="flex-1">
+    <a class="btn btn-ghost text-xl" href="/" aria-label="Loggan för företaget"
+      >Connectas AB</a
     >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        {
-          navLinks.map((link) => (
-            <li class="nav-item p-4 ">
-              <a class="nav-link fw-bold" href={link.href}>
-                {link.text}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
   </div>
-</nav>
+  <div class="flex-none hidden lg:block">
+    <ul class="menu menu-horizontal px-1">
+      {
+        navLinks.map((linkProps) => (
+          <li>
+            <Link {...linkProps} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="flex-none lg:hidden">
+    <button
+      class="btn btn-square btn-ghost"
+      onclick="toggleDropdown()"
+      aria-label="Toggle menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        ><path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16m-7 6h7"></path></svg
+      >
+    </button>
+  </div>
+</div>
 
-<style>
-  .bg-transparent-custom {
-    background-color: transparent;
-  }
+<div id="navbarDropdown" class="hidden lg:hidden">
+  <ul class="menu menu-vertical p-2">
+    {
+      navLinks.map((linkProps) => (
+        <li>
+          <Link {...linkProps} />
+        </li>
+      ))
+    }
+  </ul>
+</div>
 
-  .nav-item .nav-link {
-    color: #c4e0df !important; /* Sets the color to a slightly light green */
-  }
+<script is:inline>
+  function toggleDropdown() {
+    const dropdown = document.getElementById("navbarDropdown");
 
-  .navbar-brand {
-    font-size: 28px;
-    color: #007477;
+    if (dropdown) {
+      dropdown.classList.toggle("hidden");
+    }
   }
-</style>
+</script>
+
+<style></style>

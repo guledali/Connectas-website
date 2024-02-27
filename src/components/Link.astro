@@ -1,0 +1,20 @@
+---
+interface Props {
+  href: string;
+  text: string;
+  ariaLabel?: string;
+}
+
+const { href, text, ariaLabel, ...attrs } = Astro.props;
+---
+
+<Fragment>
+  <a
+    href={href}
+    rel="noopener noreferrer"
+    set:aria-label={ariaLabel}
+    {...attrs}
+  >
+    {text}
+  </a>
+</Fragment>
