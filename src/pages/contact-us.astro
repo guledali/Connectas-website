@@ -10,20 +10,22 @@ import ContactInfo from "@components/ContactInfo.astro";
   <div class="grid grid-cols-12 gap-4 h-screen bg-white">
     <div class="col-span-6 md:col-span-6 hidden md:flex items-start">
       <!-- Green box, full viewport height -->
-      <div class="h-full w-full flex flex-col justify-center items-center">
-        <h1 class="text-6xl font-bold tracking-tighter text-gray-900 -mt-40">
-          Kontakta Oss
-        </h1>
-        <p class="text-gray-600 mt-8">
-          Vi jobbar från klockan 08:00 till 18:00 från Måndagar till Lördagar
-        </p>
+      <div class="h-full w-full flex flex-col self-end">
+        <div class="mt-44 mx-auto">
+          <h1 class="text-6xl font-bold tracking-tighter text-gray-900 -mt-20">
+            Kontakta Oss
+          </h1>
+          <p class="text-gray-600 mt-8">
+            Vi jobbar från klockan 08:00 till 18:00 från Måndagar till Lördagar
+          </p>
 
-        <div class="mt-4">
-          <ContactInfo
-            address="https://www.google.se/maps/place/Snapphanev%C3%A4gen+18,+1202,+177+54+J%C3%A4rf%C3%A4lla/@59.415841,17.8412182,17z/data=!3m1!4b1!4m5!3m4!1s0x465f9f7c9b9f13c9:0x217f81548f61172c!8m2!3d59.415841!4d17.8437931?entry=ttu"
-            emailAddress="hello@example.com"
-            phoneNumber="+1 (555) 234-5678"
-          />
+          <div class="mt-4">
+            <ContactInfo
+              address="https://www.google.se/maps/place/Snapphanev%C3%A4gen+18,+1202,+177+54+J%C3%A4rf%C3%A4lla/@59.415841,17.8412182,17z/data=!3m1!4b1!4m5!3m4!1s0x465f9f7c9b9f13c9:0x217f81548f61172c!8m2!3d59.415841!4d17.8437931?entry=ttu"
+              emailAddress="hello@example.com"
+              phoneNumber="+1 (555) 234-5678"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -31,61 +33,64 @@ import ContactInfo from "@components/ContactInfo.astro";
     <div class="col-span-12 md:col-span-6 flex items-start">
       <!-- Red box, full viewport height -->
 
-      <section class="h-full w-full flex flex-col justify-center items-center">
-        <div class="md:hidden flex flex-col mb-20 w-full px-10">
-          <h1 class="text-gray-900 text-3xl font-medium">Kontakta oss</h1>
-          <p class="text-gray-400 my-4 text-xl">
-            Vi svarar så fort som möjligt
-          </p>
+      <section class="h-full w-full flex flex-col self-end">
+        <div class="mt-44">
+          <div class="md:hidden block mb-20 ml-10">
+            <h1 class="text-gray-900 text-3xl font-medium">Kontakta oss</h1>
+            <p class="text-gray-400 my-4 text-xl">
+              Vi svarar så fort som möjligt
+            </p>
+          </div>
+
+          <form
+            action="#"
+            method="POST"
+            class="w-full max-w-4xl px-10 -mt-20"
+            data-astro-reload
+          >
+            <div class="form-control w-full">
+              <label class="label">
+                <span class="label-text">Ditt namn</span>
+              </label>
+              <input
+                type="text"
+                placeholder="John Doe"
+                class="input input-bordered bg-white"
+                required
+              />
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Ditt Email</span>
+              </label>
+              <input
+                type="email"
+                placeholder="john@example.com"
+                class="input input-bordered bg-white"
+                required
+              />
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Meddelande</span>
+              </label>
+              <textarea
+                class="textarea textarea-bordered bg-white"
+                placeholder="Your message"
+                required></textarea>
+            </div>
+
+            <div class="mt-6 flex justify-end">
+              <button
+                type="submit"
+                class="btn bg-black text-white border-0 hover:bg-black text-sm px-4 py-2"
+                >Skicka meddelande</button
+              >
+            </div>
+          </form>
         </div>
-        <form
-          action="#"
-          method="POST"
-          class="w-full max-w-4xl px-10 -mt-20"
-          data-astro-reload
-        >
-          <div class="form-control w-full">
-            <label class="label">
-              <span class="label-text">Ditt namn</span>
-            </label>
-            <input
-              type="text"
-              placeholder="John Doe"
-              class="input input-bordered bg-white"
-              required
-            />
-          </div>
-
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">Ditt Email</span>
-            </label>
-            <input
-              type="email"
-              placeholder="john@example.com"
-              class="input input-bordered bg-white"
-              required
-            />
-          </div>
-
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">Meddelande</span>
-            </label>
-            <textarea
-              class="textarea textarea-bordered bg-white"
-              placeholder="Your message"
-              required></textarea>
-          </div>
-
-          <div class="mt-6 flex justify-end">
-            <button
-              type="submit"
-              class="btn bg-black text-white border-0 hover:bg-black text-sm px-4 py-2"
-              >Skicka meddelande</button
-            >
-          </div>
-        </form>
       </section>
     </div>
   </div>
